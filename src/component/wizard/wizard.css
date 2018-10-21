@@ -1,0 +1,61 @@
+.wizard-main {
+  height: 100vh;
+  width: 60vw;
+  background-color: #e5f4ec;
+}
+.wizard-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.wizard-btn-cancel {
+  height: 50px;
+  width: 100px;
+  background-color: #fec2c2
+}
+.complete-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.wizard-btn-complete {
+  height: 50px;
+  width: 150px;
+  background-color: #8aea92
+}
+input {
+  border: solid #8aea92 1px;
+  height: 25px;
+  width: 20%;
+}
+.address-input {
+  width:70%;
+}
+.wizard-body {
+  margin-left: 15%;
+}
+.location {
+  display: flex;
+  flex-direction: row;
+}
+.city {
+margin-left:0;
+}
+.city-input {
+  margin-left: 0;
+  width: 15%;
+}
+.state {
+  margin-left: 20%;
+}
+.state-input {
+  margin-left: 8%;
+  width: 10%;
+}
+.zip {
+  margin-left: 10%;
+}
+.zip-input {
+  margin-left: 6%;
+  width: 8%;
+}

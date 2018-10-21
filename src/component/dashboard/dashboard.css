@@ -1,0 +1,28 @@
+.main {
+  height: 100vh;
+  width: 60vw;
+ 
+  border: solid black 2px;
+  background-color: #e5f4ec;
+  margin: 0;
+  padding: 0;
+
+}
+.dashboard-top {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid grey 2px;
+}
+.dash-btn {
+  height: 50px;
+  width: 150px;
+  background-color: #8aea92;
+  
+}
+.itemBox{
+  height: 200px;
+  width: 95%;
+  background-color: #dedede;
+  margin-left:2.5%
+}

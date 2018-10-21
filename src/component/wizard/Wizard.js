@@ -1,0 +1,79 @@
+import React, { Component } from 'react';
+import axios from 'axios';
+import './wizard.css';
+
+class Wizard extends Component {
+  state = {
+    name: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: ''
+    
+  }
+
+  newHouse = () => {
+    const newHome = {
+      name: this.state.name,
+      address: this.state.address,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip
+    }
+
+    axios.post('url',newHome)
+    .then()
+    .catch(error => console.error(error))
+
+  }
+
+  onChangeName = (e) => {
+    this.setState({name: e.target.value})
+  }
+  onChangeAddress = (e) => {
+    this.setState({address: e.target.value})
+  }
+  onChangeCity = (e) => {
+    this.setState({city: e.target.value})
+  }
+  onChangeState = (e) => {
+    this.setState({state: e.target.value})
+  }
+  onChangeZip = (e) => {
+    this.setState({zip: e.target.value})
+  }
+  
+
+  render(){
+    return(
+      <div className = 'wizard-main'>
+        <div className = 'wizard-top'>
+          <h1> Add New Listing</h1>
+          <button className = 'wizard-btn-cancel'> Cancel </button>
+        </div>
+        <div className = 'wizard-body'>
+            <h2> Property Name</h2>
+            <input value = {this.state.name} onChange = {this.onChangeName} />
+            <h2> Address </h2>
+            <input className = 'address-input' value = {this.state.address} onChange = {this.onChangeAddress} />
+          <div className = 'location'>
+            <h2 className = 'city'> City </h2>
+            <h2 className = 'state'> State </h2>
+            <h2 className = 'zip'> Zip </h2>
+          </div>
+          <div className = 'location-inputs'>
+            <input className = 'city-input' value = {this.state.city} onChange = {this.onChangeCity} />
+            <input className = 'state-input' value = {this.state.state} onChange = {this.onChangeState} />
+            <input className = 'zip-input' value = {this.state.zip} onChange = {this.onChangeZip} /> 
+          </div>
+        </div>
+        <div className = 'complete-btn'>
+          <button className = 'wizard-btn-complete'> Complete </button>
+        </div>
+      </div>
+    );
+  }
+
+}
+
+export default Wizard;

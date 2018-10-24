@@ -11,8 +11,8 @@ app.use(cors({ origin: ['http://localhost:3000'] }));
 
 massive(process.env.db)
  .then(db => {
-   db.alter()
-  //  app.set('db',db)
+  //  db.alter()
+ app.set('db',db)
   
 })
 .catch(error => console.error(error))

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import {connect} from 'react-redux';
+import {newHouse} from '../../redux/actions'
+import {cancel} from '../../redux/actions'
 import './wizard.css';
+
+
 
 class Wizard extends Component {
   state = {
@@ -12,7 +16,7 @@ class Wizard extends Component {
     
   }
 
-  newHouse = () => {
+  handleClick = () => {
     const newHome = {
       name: this.state.name,
       address: this.state.address,
@@ -20,11 +24,13 @@ class Wizard extends Component {
       state: this.state.state,
       zip: this.state.zip
     }
+    this.props.newHouse(newHome)
+    this.props.history.push('./wizard2')
 
-    axios.post('url',newHome)
-    .then()
-    .catch(error => console.error(error))
-
+  }
+  handleCancel = () => {
+    this.props.cancel()
+    this.props.history.push('./home')
   }
 
   onChangeName = (e) => {
@@ -49,7 +55,7 @@ class Wizard extends Component {
       <div className = 'wizard-main'>
         <div className = 'wizard-top'>
           <h1> Add New Listing</h1>
-          <button className = 'wizard-btn-cancel'> Cancel </button>
+          <button className = 'wizard-btn-cancel' onClick = {this.handleCancel}> Cancel </button>
         </div>
         <div className = 'wizard-body'>
             <h2> Property Name</h2>
@@ -68,7 +74,7 @@ class Wizard extends Component {
           </div>
         </div>
         <div className = 'complete-btn'>
-          <button className = 'wizard-btn-complete'> Complete </button>
+          <button className = 'wizard-btn-complete' onClick = {this.handleClick}> Next </button>
         </div>
       </div>
     );
@@ -76,4 +82,4 @@ class Wizard extends Component {
 
 }
 
-export default Wizard;
+export default connect(null,{newHouse,cancel})(Wizard);

@@ -1,0 +1,1 @@
+create table houselistings (id serial primary key, propertyname text, homeaddress text, city text, state text, zip integer, urladdress text, payment integer, rent integer)

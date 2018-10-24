@@ -1,8 +1,8 @@
 const initialState = {
-  houses : [
-    {id:0,name:'test',address:'test',city:'Provo',state:'ut',zip:84601},
-    {id:1,name:'test2',address:'test2',city:'Provo',state:'ut',zip:84601}
-  ],
+  houses : []
+  ,
+  newHouse: [],
+  url: ''
 }
 
 const reducer = ( state = initialState, actions) => {
@@ -10,8 +10,18 @@ const reducer = ( state = initialState, actions) => {
     case "REMOVE": {
       return {...state, houses:state.houses.filter(state => state.id !== actions.id)}
     }
-    
-
+    case "GET": {
+      return {...state, houses: actions.payload.data }
+    }
+    case 'NEW_HOUSE': {
+      return {...state, newHouse: actions.payload}
+    }
+    case 'ADD_URL': {
+      return {...state, url: actions.payload}
+    }
+    case 'CANCEL': {
+      return {...state, url: '',newHouse:''}
+    }
     
     default: return state
   }

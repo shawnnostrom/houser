@@ -1,0 +1,1 @@
+ALTER TABLE "public"."houselistings" ADD COLUMN "Price" integer;

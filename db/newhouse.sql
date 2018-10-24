@@ -1,0 +1,1 @@
+insert into houselistings (propertyname,homeaddress,city,state,zip,urladdress,payment,rent) values ($1,$2,$3,$4,$5,$6,$7,$8)
